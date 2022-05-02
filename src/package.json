@@ -1,0 +1,28 @@
+{
+  "name": "telecom-exercise",
+  "version": "1.0.0",
+  "description": "Technical challenge Telecom Node Semi-Senior ",
+  "main": "app",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/her4z/telecom-exercise.git"
+  },
+  "author": "Sebastian Heras",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/her4z/telecom-exercise/issues"
+  },
+  "homepage": "https://github.com/her4z/telecom-exercise#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "fastify": "^3.29.0",
+    "nodemon": "^2.0.16"
+  },
+  "devDependencies": {
+    "eslint": "^8.14.0"
+  }
+}
