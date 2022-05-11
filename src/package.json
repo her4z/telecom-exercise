@@ -18,11 +18,13 @@
   },
   "homepage": "https://github.com/her4z/telecom-exercise#readme",
   "dependencies": {
+    "@fastify/swagger": "^6.0.1",
     "dotenv": "^16.0.0",
     "fastify": "^3.29.0",
-    "nodemon": "^2.0.16"
+    "node-fetch": "^2.6.7"
   },
   "devDependencies": {
-    "eslint": "^8.14.0"
+    "eslint": "^8.14.0",
+    "nodemon": "^2.0.16"
   }
 }
