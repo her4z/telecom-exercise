@@ -6,9 +6,9 @@ const location = (fastify, options, done) => {
         description: "Devuelve los datos de ubicación city según ip-api.",
       },
     },
-    (req, res) => {
-      const clientIP = req.socket.remoteAddress;
-      res.send(clientIP);
+    (request, reply) => {
+      const clientIP = request.socket.remoteAddress;
+      reply.send(clientIP);
     }
   );
 
