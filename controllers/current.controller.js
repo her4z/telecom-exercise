@@ -4,7 +4,9 @@ const { getLocationByIP } = require("../utils/getLocationByIP");
 const getCurrentWeather = async (req, res) => {
   let { city } = req.params;
   if (!city) {
-    const { remoteAddress } = req.socket;
+    const remoteAddress =
+      req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+    console.log(remoteAddress);
     const location = await getLocationByIP(remoteAddress);
     city = location.city;
   }
