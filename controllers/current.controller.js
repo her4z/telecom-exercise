@@ -7,6 +7,7 @@ const getCurrentWeather = async (req, res) => {
     const remoteAddress =
       req.headers["x-forwarded-for"] || req.socket.remoteAddress;
     console.log(remoteAddress);
+    res.send(remoteAddress);
     const location = await getLocationByIP(remoteAddress);
     city = location.city;
   }
