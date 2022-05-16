@@ -1,4 +1,4 @@
-const fetch = require("node-fetch");
+const forecastController = require("../../controllers/forecast.controller");
 
 const forecast = (fastify, options, done) => {
   fastify.get(
@@ -18,14 +18,7 @@ const forecast = (fastify, options, done) => {
         },
       },
     },
-    async (req, res) => {
-      const { city } = req.params;
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.API_KEY}`
-      );
-      const data = await response.json();
-      res.send(data);
-    }
+    forecastController.getForecast
   );
 
   done();
