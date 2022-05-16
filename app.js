@@ -22,7 +22,7 @@ const build = (opts = {}) => {
         url: "https://github.com/her4z/telecom-exercise",
         description: "GitHub Repository",
       },
-      host: `http://fastify-env.eba-enqbmpfz.us-west-2.elasticbeanstalk.com`,
+      host: `localhost:${process.env.PORT}`,
       schemes: ["http"],
       consumes: ["application/json"],
       produces: ["application/json"],
