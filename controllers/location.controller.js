@@ -1,7 +1,9 @@
 const { getLocationByIP } = require("../utils/getLocationByIP");
 
 const getLocation = async (req, res) => {
-  const clientIP = req.socket.remoteAddress; // Get request's remote IP
+  const clientIP =
+    req.headers["x-forwarded-for"]?.split(",").shift() ||
+    req.socket?.remoteAddress;
   const location = await getLocationByIP(clientIP);
   res.send(location);
 };
