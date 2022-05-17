@@ -43,6 +43,13 @@ const build = (opts = {}) => {
     transformStaticCSP: (header) => header,
     exposeRoute: true,
   });
+  app.register((fastify, options, done) => {
+    // Redirect base url to /v1 route
+    fastify.get("/", {}, (req, res) => {
+      res.redirect("/v1");
+    });
+    done();
+  });
   app.register(location, { prefix: "/v1" });
   app.register(forecast, { prefix: "/v1" });
   app.register(current, { prefix: "/v1" });
