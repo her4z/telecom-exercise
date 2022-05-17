@@ -4,8 +4,10 @@ const { getLocationByIP } = require("../utils/getLocationByIP");
 const getForecast = async (req, res) => {
   let { city } = req.params;
   if (!city) {
-    const { remoteAddress } = req.socket;
-    const location = await getLocationByIP(remoteAddress);
+    const clientIP =
+      req.headers["x-forwarded-for"]?.split(",").shift() ||
+      req.socket?.remoteAddress;
+    const location = await getLocationByIP(clientIP);
     city = location.city;
   }
   const result = await fetch(
