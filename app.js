@@ -22,7 +22,7 @@ const build = (opts = {}) => {
         url: "https://github.com/her4z/telecom-exercise",
         description: "GitHub Repository",
       },
-      host: `localhost:${process.env.PORT}`,
+      host: `0.0.0.0:${process.env.PORT}`,
       schemes: ["http"],
       consumes: ["application/json"],
       produces: ["application/json"],
