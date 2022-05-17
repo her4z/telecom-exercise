@@ -6,10 +6,10 @@ const getCurrentWeather = async (req, res) => {
   if (!city) {
     const remoteAddress =
       req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+    res.send(remoteAddress[0]);
     const location = await getLocationByIP(
       remoteAddress[0] // If x-forwarded-for returns an array of IPs, it uses the first element, which should be the closest address to the client.
     );
-    res.send(location);
     city = location.city;
   }
   const result = await fetch(
