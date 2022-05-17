@@ -1,9 +1,8 @@
 const fetch = require("node-fetch");
 
 const getLocationByIP = async (ip) => {
-  console.log(ip);
+  return ip;
   const res = await fetch(`http://ip-api.com/json/${ip}`);
-  return res;
   const data = await res.json();
   return data;
 };
