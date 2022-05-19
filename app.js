@@ -45,9 +45,9 @@ const build = (opts = {}) => {
   });
   app.register((fastify, options, done) => {
     // Redirect base url to /v1 route
-    fastify.get("/", {}, (req, res) => {
-      res.header("Content-Length", "");
-      res.redirect("/v1");
+    fastify.get("/", {}, (req, rep) => {
+      rep.removeHeader("Content-Length");
+      rep.redirect("/v1");
     });
     done();
   });
