@@ -22,7 +22,7 @@ const build = (opts = {}) => {
         url: "https://github.com/her4z/telecom-exercise",
         description: "GitHub Repository",
       },
-      host: `localhost:${process.env.PORT}`,
+      host: `0.0.0.0:${process.env.PORT}`,
       schemes: ["http"],
       consumes: ["application/json"],
       produces: ["application/json"],
@@ -42,6 +42,13 @@ const build = (opts = {}) => {
     staticCSP: true,
     transformStaticCSP: (header) => header,
     exposeRoute: true,
+  });
+  app.register((fastify, options, done) => {
+    // Redirect base url to /v1 route
+    fastify.get("/", {}, (req, res) => {
+      res.redirect("/v1");
+    });
+    done();
   });
   app.register(location, { prefix: "/v1" });
   app.register(forecast, { prefix: "/v1" });

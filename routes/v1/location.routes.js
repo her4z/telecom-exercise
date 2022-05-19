@@ -1,3 +1,5 @@
+const locationController = require("../../controllers/location.controller");
+
 const location = (fastify, options, done) => {
   fastify.get(
     "/location",
@@ -6,10 +8,7 @@ const location = (fastify, options, done) => {
         description: "Devuelve los datos de ubicación city según ip-api.",
       },
     },
-    (request, reply) => {
-      const clientIP = request.socket.remoteAddress;
-      reply.send(clientIP);
-    }
+    locationController.getLocation
   );
 
   done();
