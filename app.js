@@ -33,6 +33,7 @@ const build = (opts = {}) => {
     },
     uiHooks: {
       onRequest: function (request, reply, next) {
+        reply.removeHeader("Content-Length");
         next();
       },
       preHandler: function (request, reply, next) {
@@ -45,9 +46,8 @@ const build = (opts = {}) => {
   });
   app.register((fastify, options, done) => {
     // Redirect base url to /v1 route
-    fastify.get("/", {}, (req, rep) => {
-      rep.removeHeader("Content-Length");
-      rep.redirect("/v1");
+    fastify.get("/", {}, (request, reply) => {
+      reply.redirect("/v1");
     });
     done();
   });
