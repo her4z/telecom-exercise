@@ -1,6 +1,6 @@
 const { build } = require("./app.js");
 
-const app = build({ logger: true });
+const app = build({ logger: false });
 
 const start = async () => {
   try {
