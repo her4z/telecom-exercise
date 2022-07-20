@@ -1,6 +1,4 @@
-# telecom-exercise
-
-Weather API
+# Weather API
 
 For running the app on production mode:
 
